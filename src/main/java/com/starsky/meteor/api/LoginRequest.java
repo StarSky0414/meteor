@@ -47,6 +47,6 @@ public class LoginRequest {
         }
         System.out.println(phoneNumber);
         System.out.println(registerNumber);
-        return "hahahhaha";
+        return "{'message':1}";
     }
 }
