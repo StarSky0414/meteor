@@ -1,5 +1,8 @@
 package com.starsky.meteor.stat;
 
+import com.starsky.meteor.db.provider.UserInfoProvider;
+import org.hibernate.exception.ConstraintViolationException;
+
 import java.util.ArrayList;
 
 public class IdentifyingCodeList {
@@ -32,6 +35,12 @@ public class IdentifyingCodeList {
                 System.out.println("nowTime"+nowTime);
                 if (getEndTime(identifyingCodeBean.getTime())>=nowTime){
                     if ( identifyingCodeBean.getCode().equals(code)) {
+                        try {
+                            UserInfoProvider userInfoProvider = new UserInfoProvider();
+                            userInfoProvider.CreateUserInfo(userPhone);
+                        }catch (ConstraintViolationException e){
+                            System.out.println("已填写过验证码");
+                        }
                         return true;
                     }
                 }else {
