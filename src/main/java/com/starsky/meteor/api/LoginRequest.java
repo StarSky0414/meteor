@@ -40,13 +40,14 @@ public class LoginRequest {
     public String registerNumber(@RequestParam(name = "phoneNumber")String phoneNumber,
                                @RequestParam(name = "registerNumber")String registerNumber){
 
-        if (identifyingCodeList.findUserIdentifyingCode(phoneNumber,registerNumber)){
-            System.out.println("验证通过");
-        }else {
-            System.out.println("验证未通过");
-        }
         System.out.println(phoneNumber);
         System.out.println(registerNumber);
-        return "hahahhaha";
+        if (identifyingCodeList.findUserIdentifyingCode(phoneNumber,registerNumber)){
+            System.out.println("验证通过");
+            return "{'message':1}";
+        }else {
+            System.out.println("验证未通过");
+            return "{'message':0}";
+        }
     }
 }
