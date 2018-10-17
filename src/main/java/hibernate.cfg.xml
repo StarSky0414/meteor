@@ -5,10 +5,9 @@
 <hibernate-configuration>
     <session-factory>
 
+        <property name="hibernate.current_session_context_class">thread</property>
         <mapping class="com.starsky.meteor.db.op.UserInfoEntity"/>
         <mapping resource="com/starsky/meteor/db/op/UserInfoEntity.hbm.xml"/>
 
-        <!-- DB schema will be updated if needed -->
-        <!-- <property name="hbm2ddl.auto">update</property> -->
     </session-factory>
 </hibernate-configuration>

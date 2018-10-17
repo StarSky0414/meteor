@@ -7,6 +7,7 @@
     <class name="com.starsky.meteor.db.op.UserInfoEntity" table="user_info" schema="meteor">
         <id name="id">
             <column name="_id" sql-type="int(11)"/>
+            <generator class="identity"/>
         </id>
         <property name="userPhone">
             <column name="user_phone" sql-type="varchar(20)" length="20" not-null="true"/>
