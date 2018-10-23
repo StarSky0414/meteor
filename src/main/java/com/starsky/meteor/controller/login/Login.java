@@ -3,10 +3,28 @@ package com.starsky.meteor.controller.login;
 import com.alibaba.fastjson.JSONObject;
 import com.starsky.meteor.bean.SMSRespodsBean;
 import com.starsky.meteor.controller.externalrequest.BaseNetRequest;
+import com.starsky.meteor.customexception.NoUserInfo;
+import com.starsky.meteor.db.op.UserInfoEntity;
+import com.starsky.meteor.db.provider.UserInfoProvider;
 
 import java.util.HashMap;
 
 public class Login {
+    public boolean userLogin(String phoneNumber, String password){
+        UserInfoProvider userInfoProvider = new UserInfoProvider();
+        try {
+            UserInfoEntity userInfoEntity = userInfoProvider.queryUserInfo(phoneNumber);
+            if (password.equals(userInfoEntity.getUserPassword())){
+                return true;
+            }else {
+                return false;
+            }
+        } catch (NoUserInfo noUserInfo) {
+            noUserInfo.printStackTrace();
+            return false;
+        }
+    }
+
     public String register(String phoneNumber){
         String url="https://api.netease.im/sms/sendcode.action";
         String appSecret="4afb70479eab";
