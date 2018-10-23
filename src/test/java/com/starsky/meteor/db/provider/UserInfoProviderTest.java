@@ -1,5 +1,6 @@
 package com.starsky.meteor.db.provider;
 
+import com.starsky.meteor.customexception.NoUserInfo;
 import com.starsky.meteor.db.op.UserInfoEntity;
 import org.hibernate.exception.ConstraintViolationException;
 import org.junit.jupiter.api.Test;
@@ -24,7 +25,12 @@ class UserInfoProviderTest {
 
     @Test
     void testQueryUserInfo(){
-        UserInfoEntity userInfoEntity = userInfoProvider.queryUserInfo("123");
+        UserInfoEntity userInfoEntity = null;
+        try {
+            userInfoEntity = userInfoProvider.queryUserInfo("123");
+        } catch (NoUserInfo noUserInfo) {
+            noUserInfo.printStackTrace();
+        }
         System.out.println(userInfoEntity.getId());
         System.out.println(userInfoEntity.getUserNickname());
         System.out.println(userInfoEntity.getUserPhone());
