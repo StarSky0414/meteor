@@ -25,11 +25,11 @@ public class LoginRequest {
         JSONObject jsonObject = new JSONObject();
         if (register.equals("")) {
             jsonObject.put("message", 0);
-            jsonObject.put("registerNum", "");
+//            jsonObject.put("registerNum", "");
         } else {
             identifyingCodeList.addIdentifyingCodeList(phoneNumber, register);
             jsonObject.put("message", 1);
-            jsonObject.put("registerNum", register);
+//            jsonObject.put("registerNum", register);
         }
         String s = jsonObject.toJSONString();
         System.out.println(s);
