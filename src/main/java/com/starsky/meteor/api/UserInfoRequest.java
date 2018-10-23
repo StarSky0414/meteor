@@ -20,10 +20,10 @@ public class UserInfoRequest {
         System.out.println("userPassword: "+userPassword);
         UserInfoController userInfoController = new UserInfoController();
         if (userInfoController.userInfoUpdate(userPhoneNumber,userNickName,userPassword)){
-            return "{'message':1}";
+            return "{\"message\":1}";
         }else {
             System.out.println("验证未通过");
-            return "{'message':0}";
+            return "{\"message\":0}";
         }
     }
 

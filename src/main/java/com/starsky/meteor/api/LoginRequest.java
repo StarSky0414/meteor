@@ -43,10 +43,10 @@ public class LoginRequest {
         System.out.println(registerNumber);
         if (identifyingCodeList.findUserIdentifyingCode(phoneNumber, registerNumber)) {
             System.out.println("验证通过");
-            return "{'message':1}";
+            return "{\"message\":1}";
         } else {
             System.out.println("验证未通过");
-            return "{'message':0}";
+            return "{\"message\":0}";
         }
 
     }
@@ -57,10 +57,10 @@ public class LoginRequest {
         Login login = new Login();
         if (login.userLogin(userPhone,password)) {
             System.out.println("验证通过");
-            return "{'message':1}";
+            return "{\"message\":1}";
         }else {
             System.out.println("验证未通过");
-            return "{'message':0}";
+            return "{\"message\":0}";
         }
     }
 }
