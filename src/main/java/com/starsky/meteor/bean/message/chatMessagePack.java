@@ -1,13 +1,17 @@
 package com.starsky.meteor.bean.message;
 
-public class chatMessagePack {
+import com.starsky.meteor.db.op.MessageEntity;
+
+import java.util.ArrayList;
+
+public class chatMessagePack implements MessageBean {
 
     private int code;
     private int state;
     private UserInfo userInfo;
-    private MessageList[] messageList;
+    private ArrayList<MessageEntity> messageList;
 
-    public chatMessagePack(int code, int state, UserInfo userInfo, MessageList[] messageList) {
+    public chatMessagePack(int code, int state, UserInfo userInfo, ArrayList<MessageEntity> messageList) {
         this.code = code;
         this.state = state;
         this.userInfo = userInfo;
@@ -38,11 +42,11 @@ public class chatMessagePack {
         this.userInfo = userInfo;
     }
 
-    public MessageList[] getMessageList() {
+    public ArrayList<MessageEntity> getMessageList() {
         return messageList;
     }
 
-    public void setMessageList(MessageList[] messageList) {
+    public void setMessageList(ArrayList<MessageEntity> messageList) {
         this.messageList = messageList;
     }
 }

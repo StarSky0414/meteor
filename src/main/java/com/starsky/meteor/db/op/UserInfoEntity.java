@@ -5,14 +5,15 @@ import java.util.Objects;
 
 @Entity
 @Table(name = "user_info", schema = "meteor", catalog = "")
-public class UserInfoEntity {
+public class UserInfoEntity{
     private int id;
     private String userPhone;
     private String userPassword;
     private String userNickname;
+    private String userHeadLink;
 
     @Id
-    @Column(name = "_id", nullable = false)
+    @Column(name = "id", nullable = false)
     public int getId() {
         return id;
     }
@@ -66,5 +67,15 @@ public class UserInfoEntity {
     public int hashCode() {
 
         return Objects.hash(id, userPhone, userPassword, userNickname);
+    }
+
+    @Basic
+    @Column(name = "user_head_link", nullable = true, length = 100)
+    public String getUserHeadLink() {
+        return userHeadLink;
+    }
+
+    public void setUserHeadLink(String userHeadLink) {
+        this.userHeadLink = userHeadLink;
     }
 }

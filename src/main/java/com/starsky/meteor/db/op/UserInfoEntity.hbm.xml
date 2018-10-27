@@ -6,8 +6,7 @@
 
     <class name="com.starsky.meteor.db.op.UserInfoEntity" table="user_info" schema="meteor">
         <id name="id">
-            <column name="_id" sql-type="int(11)"/>
-            <generator class="identity"/>
+            <column name="id" sql-type="int(11)"/>
         </id>
         <property name="userPhone">
             <column name="user_phone" sql-type="varchar(20)" length="20" not-null="true"/>
@@ -17,6 +16,9 @@
         </property>
         <property name="userNickname">
             <column name="user_nickname" sql-type="varchar(50)" length="50" not-null="true"/>
+        </property>
+        <property name="userHeadLink">
+            <column name="user_head_link" sql-type="varchar(100)" length="100" not-null="true"/>
         </property>
     </class>
 </hibernate-mapping>

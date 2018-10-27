@@ -6,8 +6,13 @@
     <session-factory>
 
         <property name="hibernate.current_session_context_class">thread</property>
+
         <mapping class="com.starsky.meteor.db.op.UserInfoEntity"/>
         <mapping resource="com/starsky/meteor/db/op/UserInfoEntity.hbm.xml"/>
-
+        <mapping class="com.starsky.meteor.db.op.MessageEntity"/>
+        <mapping resource="com/starsky/meteor/db/op/MessageEntity.hbm.xml"/>
+        <mapping class="com.starsky.meteor.db.op.UserFollowEntity"/>
+        <mapping resource="com/starsky/meteor/db/op/UserFollowEntity.hbm.xml"/>
+        <mapping class="com.starsky.meteor.bean.message.FriendUserInfoList"/>
     </session-factory>
 </hibernate-configuration>

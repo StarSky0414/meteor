@@ -1,6 +1,6 @@
 package com.starsky.meteor.bean.message;
 
-public class UserInfo {
+public class UserInfo implements MessageBean{
     private String userId;
     private String nextCheck;
 

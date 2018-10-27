@@ -1,6 +1,9 @@
 package com.starsky.meteor.db.provider;
 
+import com.starsky.meteor.bean.message.FriendUserInfoList;
 import com.starsky.meteor.customexception.NoUserInfo;
+import com.starsky.meteor.customexception.db.SelectListNone;
+import com.starsky.meteor.db.DBBase;
 import com.starsky.meteor.db.HibernateFactory;
 import com.starsky.meteor.db.op.UserInfoEntity;
 import org.hibernate.Session;
@@ -8,13 +11,15 @@ import org.hibernate.Transaction;
 import org.hibernate.query.NativeQuery;
 import org.hibernate.query.Query;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class UserInfoProvider {
-//    private final Session session;
-//    Transaction transaction;
-    public UserInfoProvider(){
 
+    private final DBBase dbBase;
+
+    public UserInfoProvider(){
+        dbBase = DBBase.getDBBase();
     }
 
     public void CreateUserInfo(String userPhone){
@@ -67,5 +72,13 @@ public class UserInfoProvider {
             throw new NoUserInfo();
         }
         return list.get(0);
+    }
+
+    public List queryFriendUserInfo(String userId) throws SelectListNone {
+        String sql = "select friend_id,user_head_link,user_follow.nickname from user_follow , user_info where user_id= ? and friend_id=user_info.id;";
+        ArrayList<Object> parameterArrayList = new ArrayList<>();
+        parameterArrayList.add(userId);
+        List<FriendUserInfoList> query = dbBase.query(sql, parameterArrayList, FriendUserInfoList.class);
+        return query;
     }
 }

@@ -1,18 +1,20 @@
 package com.starsky.meteor.bean.message;
 
-public class MessageList {
+import java.sql.Timestamp;
+
+public class MessageList implements MessageBean {
     private String messageId;
     private String sendUserId;
-    private ReceiveUserInfo receiveUserInfo;
+    private String receiveUser;
     private String messageContent;
     private String type;
     private String voiceTime;
-    private String time;
+    private Timestamp time;
 
-    public MessageList(String messageId, String sendUserId, ReceiveUserInfo receiveUserInfo, String messageContent, String type, String voiceTime, String time) {
+    public MessageList(String messageId, String sendUserId, String receiveUser, String messageContent, String type, String voiceTime, Timestamp time) {
         this.messageId = messageId;
         this.sendUserId = sendUserId;
-        this.receiveUserInfo = receiveUserInfo;
+        this.receiveUser = receiveUser;
         this.messageContent = messageContent;
         this.type = type;
         this.voiceTime = voiceTime;
@@ -31,11 +33,11 @@ public class MessageList {
         return sendUserId;
     }
 
-    public String getTime() {
+    public Timestamp getTime() {
         return time;
     }
 
-    public void setTime(String time) {
+    public void setTime(Timestamp time) {
         this.time = time;
     }
 
@@ -43,12 +45,12 @@ public class MessageList {
         this.sendUserId = sendUserId;
     }
 
-    public ReceiveUserInfo getReceiveUserInfo() {
-        return receiveUserInfo;
+    public String getSendUserInfo() {
+        return receiveUser;
     }
 
-    public void setReceiveUserInfo(ReceiveUserInfo receiveUserInfo) {
-        this.receiveUserInfo = receiveUserInfo;
+    public void setSendUserInfo(String sendUserInfo) {
+        this.receiveUser = sendUserInfo;
     }
 
     public String getMessageContent() {
