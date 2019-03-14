@@ -11,7 +11,7 @@ import java.net.Socket;
 
 public class MessageInfoACKRequest {
 
-    private static final int PORT=8082;
+    private static final int PORT=8080;
 
     private final ServerSocket serverSocket;
     private final Socket client;

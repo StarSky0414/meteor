@@ -12,7 +12,7 @@ class MessageInfoACKRequestTest {
     void getHeartJumpPack() {
         try {
             MessageInfoACKRequest messageInfoACKRequest = new MessageInfoACKRequest();
-//            messageInfoACKRequest.getHeartJumpPack();
+            messageInfoACKRequest.getHeartJumpPack("1","123");
         } catch (IOException e) {
             e.printStackTrace();
         }
